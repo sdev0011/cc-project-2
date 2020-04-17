@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block menu %} 
+
+  <a href="/shared-key">
+    <h2 class="type-header">
+      🤝 Shared Key Encryption 🤝
+    </h2>
+  </a>
+
+    <ul id="function-list">
+      
+      <li  class="{{ encrypt }}">
+        <a href="/shared-key/encrypt">
+          <h3>
+            🔒 Encrypt 🔒
+          </h3> 
+        </a> 
+      </li>
+     
+      <li class="{{ decrypt }}">
+        <a href="/shared-key/decrypt">  
+          <h3>
+            🔑 Decrypt 🔑
+          </h3>
+        </a>
+      </li> 
+      
+      <li class="{{ brute_force }}">
+        <a href="/shared-key/brute-force" >
+          <h3>
+            🛠 Brute Force Decrypt 🛠
+          </h3> 
+        </a>
+      </li> 
+
+    </ul>
+
+{% endblock %}
+{% block body %}
+{% endblock %}

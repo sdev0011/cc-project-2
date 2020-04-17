@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block menu %}
+
+  <hr>
+  
+  <a href="/offset">
+    <h2 class="type-header">
+      ➡️ Offset Encryption ➡️
+    </h2>
+  </a>
+
+    <ul id="function-list">
+     
+      <li  class="{{ encrypt }}">
+         <a href="/offset/encrypt">
+          <h3>
+            🔒 Encrypt 🔒
+          </h3>     
+         </a>
+      </li>
+      
+      <li class="{{ decrypt }}">
+        <a href="/offset/decrypt"> 
+          <h3>
+            🔑 Decrypt 🔑
+          </h3>
+        </a>
+      </li> 
+     
+      <li class="{{ brute_force }}">
+        <a href="/offset/brute-force" >
+       
+          <h3>
+            🛠 Brute Force Decrypt 🛠
+          </h3> 
+        </a>
+      </li> 
+      
+    </ul>
+
+{% endblock %}
+{% block body %}
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "public-key.html" %}
+{% block body %} 
+
+  <h3>
+    Original Encrypted Message:
+  </h3>
+  <p id="encrypted-message">
+    {{ message }}
+  </p>
+  <h3>
+    Possible Decrypted Messages:
+  </h3>
+
+  <h4>
+    {{ possible_decrypted_messages_length }} possible messages took {{ decrypt_time }} seconds to decrypt.
+  </h4>
+
+  <div class="remove-error-button-container">
+    <button id="remove-error-button">
+      Remove Error Guesses ❌
+    </button>
+  </div>
+  <!--{#
+  <div class="best-guess-button-container">
+    <button id="best-guess-button">
+      Reveal Best Guesses 🎰
+    </button>
+  </div>
+
+  <div id="best-guess">
+    
+    <h4>
+      Original message is probably one of these:
+    </h4>
+    
+    <p class="messages">   
+      {% for i in range(0, most_likely_messages_length)  %}
+        {{ most_likely_offsets[i] + 1 }}.<br><strong>Key: </strong>{{ most_likely_messages[i]['key'] }}, <strong>Message: </strong>{{ most_likely_messages[i]['message'] }}<br><br>
+      {% endfor %}
+    </p>
+    
+  </div>
+  #}-->
+
+  <hr/>
+
+  <ol>
+  {% for possible_message in possible_decrypted_messages %}
+    
+    {% if possible_message["valid"] == True %}
+      <li class="valid-message">
+    {% else %}
+      <li class="invalid-message">
+    {% endif %}
+        <strong>Private Key: </strong>{{ possible_message["key"] }}
+        <br>
+        <strong>Message: </strong>{{ possible_message["message"] }}
+        <br>
+        <br>
+      </li>
+  {% endfor %}
+  </ol>
+  <br>
+
+  <ol>
+  {% for key in keys %}
+    <li>
+      {{ key }}
+    </li>
+  {% endfor %}
+  </ol>
+
+
+{% endblock %}
+

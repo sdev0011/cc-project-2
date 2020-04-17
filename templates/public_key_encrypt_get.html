@@ -1,0 +1,25 @@
+{% extends "public-key.html" %}
+{% block body %}   
+
+  <div id="encryption">
+    <div id="encrypt-form">
+      <form action="/public-key/encrypt" method="post">
+        <label>Message to Encrypt:</label>
+        <br>
+        <textarea id="encrypt-message" name="message"></textarea>
+        <br>
+        <label>Public Key 1:</label>
+        <input type="text" id="encrypt-public-key-1" name="public-key-1">
+        <label>Public Key 2:</label>
+        <input type="text" id="encrypt-public-key-2" name="public-key-2">
+        <br>
+        <button value="submit">Encrypt</button>
+
+      </form>
+    </div>
+  </div>
+  <div id="explanation">
+    {{ explanation }}
+  </div>
+    
+{% endblock %}
